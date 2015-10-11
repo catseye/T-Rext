@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+
+"""Usage: t-rext [OPTIONS] FILES
+
+Adjusts spacing (and other factors) to make a generated text more presentable.
+"""
+
+from os.path import realpath, dirname, join
+import sys
+
+sys.path.insert(0, join(dirname(realpath(sys.argv[0])), '..', 'src'))
+
+# ----------------------------------------------------------------- #
+
+import codecs
+from optparse import OptionParser
+import sys
+
+from t_rext.processors import (
+    TidyPunctuationLineFilter,
+    QuoteOrienterLineFilter,
+    LinesToParagraphsRegrouper,
+)
+
+
+optparser = OptionParser(__doc__.strip())
+(options, args) = optparser.parse_args(sys.argv[1:])
+
+for filename in args:
+    with codecs.open(filename, 'r', encoding='UTF-8') as f:
+        for para in LinesToParagraphsRegrouper(f):
+            for line in TidyPunctuationLineFilter(
+                          QuoteOrienterLineFilter(para),
+                        ):
+                sys.stdout.write(line.encode('UTF-8'))
+                sys.stdout.write('\n')
