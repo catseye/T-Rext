@@ -39,9 +39,9 @@ Then you can add imports like this to the top of your script:
     from t_rext.processors import TrailingWhitespaceProcessor
 
 An easy way to accomplish the above two things is to dock T-Rext using
-[toolshelf][]:
+[shelf][]:
 
-    toolshelf dock gh:catseye/t-rext
+    cd ~/checkout && shelf_dockgh catseye/T-Rext
 
 Tests
 -----
@@ -94,4 +94,4 @@ Quotes do not match across paragraphs.
     = You “don't” have a clue.
 
 [Falderal]:     http://catseye.tc/node/Falderal
-[toolshelf]:    http://catseye.tc/node/toolshelf
+[shelf]:        http://catseye.tc/node/shelf
