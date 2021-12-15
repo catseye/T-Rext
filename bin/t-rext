@@ -18,6 +18,7 @@ import sys
 
 from t_rext.processors import (
     TidyPunctuationLineFilter,
+    TidyStartOfLineProcessor,
     QuoteOrienterLineFilter,
     LinesToParagraphsRegrouper,
 )
@@ -30,7 +31,9 @@ for filename in args:
     with codecs.open(filename, 'r', encoding='UTF-8') as f:
         for para in LinesToParagraphsRegrouper(f):
             for line in TidyPunctuationLineFilter(
-                          QuoteOrienterLineFilter(para),
+                            TidyStartOfLineProcessor(
+                                QuoteOrienterLineFilter(para),
+                            )
                         ):
                 sys.stdout.write(line)
                 sys.stdout.write('\n')

@@ -167,6 +167,25 @@ class FixIndefiniteArticlesLineFilter(RewritingProcessor):
     )
 
 
+class PrefixRewriteProcessor(LineProcessor):
+    SUBSTITUTIONS = ()
+
+    def __iter__(self):
+        for line in self.iterable:
+            line = line.rstrip()
+            for (subject, replacement) in self.SUBSTITUTIONS:
+                if line.startswith(subject):
+                    line = replacement + line[len(subject):]
+            yield line
+
+
+class TidyStartOfLineProcessor(PrefixRewriteProcessor):
+    SUBSTITUTIONS = (
+        ('. ', ''),
+        (', ', ''),
+    )
+
+
 class QuoteOrienterLineFilter(LineProcessor):
     """Note that this expects to work on a single paragraph
     only.  (If you give it more than one paragraph, it will
