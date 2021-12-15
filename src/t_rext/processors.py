@@ -141,6 +141,8 @@ class TidyPunctuationLineFilter(RewritingProcessor):
         (r',\.', '.'),
         (r'“ ', '“'),
         (r' ”', '”'),
+        (r'\.\.', '.'),
+        (r" \'s", "'s"),
     )
 
 
