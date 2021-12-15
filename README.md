@@ -7,8 +7,13 @@ a text generator, such as a Markov processor, you need not worry too much
 about its output format; just toss its output through T-Rext when you're
 done to make it more presentable.
 
+The current version of T-Rext is 0.2.  This version requires Python 3.x;
+Python 2.x is no longer supported.
+
 Usage
 -----
+
+### Usage from the Command Line
 
     bin/t-rext raw_output.txt > cleaned_output.txt
 
@@ -26,6 +31,8 @@ repository to your `PATH`.  For example, you might add this line to your
 
     export PATH=/path/to/this/repo/bin:$PATH
 
+### Usage from Python
+
 T-Rext is built on an over-engineered library of pipeline processors, which
 you can use directly (note, its interface is not stable and liable to change.)
 To use the T-Rext Python modules in other Python programs, make sure the
@@ -37,11 +44,6 @@ you might add this line to your `.bashrc`:
 Then you can add imports like this to the top of your script:
 
     from t_rext.processors import TrailingWhitespaceProcessor
-
-An easy way to accomplish the above two things is to dock T-Rext using
-[shelf][]:
-
-    cd ~/checkout && shelf_dockgh catseye/T-Rext
 
 Tests
 -----
@@ -94,4 +96,3 @@ Quotes do not match across paragraphs.
     = You “don't” have a clue.
 
 [Falderal]:     http://catseye.tc/node/Falderal
-[shelf]:        http://catseye.tc/node/shelf

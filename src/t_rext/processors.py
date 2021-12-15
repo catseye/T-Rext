@@ -43,7 +43,7 @@ class Processor(object):
 class LineProcessor(Processor):
 
     def check_input_value(self, value):
-        assert isinstance(value, unicode)
+        assert isinstance(value, str)
 
 
 class TrailingWhitespaceProcessor(LineProcessor):
@@ -130,17 +130,17 @@ class RewritingProcessor(LineProcessor):
 
 class TidyPunctuationLineFilter(RewritingProcessor):
     SUBSTITUTIONS = (
-        (ur'- ', u'-'),
-        (ur' ,', u','),
-        (ur' \.', u'.'),
-        (ur' \;', u';'),
-        (ur' \:', u':'),
-        (ur' \?', u'?'),
-        (ur' \!', u'!'),
-        (ur',,', u','),
-        (ur',\.', u'.'),
-        (ur'“ ', u'“'),
-        (ur' ”', u'”'),
+        (r'- ', '-'),
+        (r' ,', ','),
+        (r' \.', '.'),
+        (r' \;', ';'),
+        (r' \:', ':'),
+        (r' \?', '?'),
+        (r' \!', '!'),
+        (r',,', ','),
+        (r',\.', '.'),
+        (r'“ ', '“'),
+        (r' ”', '”'),
     )
 
 
@@ -175,16 +175,15 @@ class QuoteOrienterLineFilter(LineProcessor):
     def __iter__(self):
         self.state = 0
         for line in self.iterable:
-            new_line = u''
+            new_line = ''
             for character in line:
-                character = unicode(character)
-                if character == u'"':
+                if character == '"':
                     if self.state == 0:
-                        character = u'“'
+                        character = '“'
                         self.state = 1
                     else:
                         assert self.state == 1
-                        character = u'”'
+                        character = '”'
                         self.state = 0
                 new_line += character
             yield new_line
