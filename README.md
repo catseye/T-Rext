@@ -1,14 +1,15 @@
 T-Rext
 ======
 
-T-Rext is a command-line filter that attempts to clean up spaces and
-punctuation in a text file.  Its purpose is so that, when you are writing
-a text generator, such as a Markov processor, you need not worry too much
-about its output format; just toss its output through T-Rext when you're
-done to make it more presentable.
+T-Rext is a command-line filter that attempts to clean up spacing,
+punctuation, and capitalization in a text file.  Its purpose is so that,
+when you are writing a text generator, such as a Markov processor, you
+need not worry too much about its output format; just toss its output
+through T-Rext when you're done to make it more presentable.
 
-The current version of T-Rext is 0.2.  This version requires Python 3.x;
-Python 2.x is no longer supported.
+The current version of T-Rext is 0.2.  Version 0.2 requires Python 3.x;
+Python 2.x is no longer supported.  Docker images based on the required
+version of Python for each version, are [available on Docker Hub][].
 
 Usage
 -----
@@ -135,5 +136,6 @@ just a comma.
     | It was.. the nice., thing.
     = It was... the nice, thing.
 
-[Falderal]:     http://catseye.tc/node/Falderal
-[shelf]:        http://catseye.tc/node/shelf
+[Falderal]:                https://catseye.tc/node/Falderal
+[shelf]:                   https://catseye.tc/node/shelf
+[available on Docker Hub]: https://hub.docker.com/r/catseye/t-rext
