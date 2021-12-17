@@ -115,5 +115,19 @@ Single spaces before apostrophes are elided in some situations.
     | It wasn 't Arthur 's car.
     = It wasn't Arthur's car.
 
+Punctuation at the beginning of a line is elided in some cases.
+
+    | , where he said so.
+    = Where he said so.
+
+Capitalization is applied at the beginning of a line, and the
+beginning of a sentence.
+
+    | , where. he said so.
+    = Where. He said so.
+
+    | Really?    that was... so
+    = Really?    That was... so
+
 [Falderal]:     http://catseye.tc/node/Falderal
 [shelf]:        http://catseye.tc/node/shelf

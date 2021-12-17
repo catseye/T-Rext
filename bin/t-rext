@@ -17,6 +17,7 @@ from optparse import OptionParser
 import sys
 
 from t_rext.processors import (
+    CapitalizationProcessor,
     TidyPunctuationLineFilter,
     TidyStartOfLineProcessor,
     QuoteOrienterLineFilter,
@@ -33,6 +34,7 @@ for filename in args:
             proc = QuoteOrienterLineFilter(para)
             proc = TidyStartOfLineProcessor(proc)
             proc = TidyPunctuationLineFilter(proc)
+            proc = CapitalizationProcessor(proc)
             for line in proc:
                 sys.stdout.write(line)
                 sys.stdout.write('\n')

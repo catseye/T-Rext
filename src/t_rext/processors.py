@@ -186,6 +186,22 @@ class TidyStartOfLineProcessor(PrefixRewriteProcessor):
     )
 
 
+class CapitalizationProcessor(LineProcessor):
+    PATTERNS = (
+        r'([^.]\.\s+)([a-z])',
+        r'(\?\s+)([a-z])',
+        r'^(\W*?)([a-z])',
+    )
+
+    def __iter__(self):
+        def transform(match):
+            return match.group(1) + match.group(2).upper()
+        for line in self.iterable:
+            for pattern in self.PATTERNS:
+                line = re.sub(pattern, transform, line)
+            yield line
+
+
 class QuoteOrienterLineFilter(LineProcessor):
     """Note that this expects to work on a single paragraph
     only.  (If you give it more than one paragraph, it will
