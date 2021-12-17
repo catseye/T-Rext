@@ -31,6 +31,11 @@ repository to your `PATH`.  For example, you might add this line to your
 
     export PATH=/path/to/this/repo/bin:$PATH
 
+An easy way to accomplish the above is to install [shelf][], then
+dock T-Rext using
+
+    shelf_dockgh catseye/T-Rext
+
 ### Usage from Python
 
 T-Rext is built on an over-engineered library of pipeline processors, which
@@ -96,3 +101,4 @@ Quotes do not match across paragraphs.
     = You “don't” have a clue.
 
 [Falderal]:     http://catseye.tc/node/Falderal
+[shelf]:        http://catseye.tc/node/shelf
