@@ -30,10 +30,9 @@ optparser = OptionParser(__doc__.strip())
 for filename in args:
     with codecs.open(filename, 'r', encoding='UTF-8') as f:
         for para in LinesToParagraphsRegrouper(f):
-            for line in TidyPunctuationLineFilter(
-                            TidyStartOfLineProcessor(
-                                QuoteOrienterLineFilter(para),
-                            )
-                        ):
+            proc = QuoteOrienterLineFilter(para)
+            proc = TidyStartOfLineProcessor(proc)
+            proc = TidyPunctuationLineFilter(proc)
+            for line in proc:
                 sys.stdout.write(line)
                 sys.stdout.write('\n')
