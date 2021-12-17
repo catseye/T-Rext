@@ -129,5 +129,11 @@ beginning of a sentence.
     | Really?    that was... so
     = Really?    That was... so
 
+Two full stops becomes an ellipsis.  Full stop then comma becomes
+just a comma.
+
+    | It was.. the nice., thing.
+    = It was... the nice, thing.
+
 [Falderal]:     http://catseye.tc/node/Falderal
 [shelf]:        http://catseye.tc/node/shelf

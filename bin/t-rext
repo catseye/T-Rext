@@ -18,6 +18,7 @@ import sys
 
 from t_rext.processors import (
     CapitalizationProcessor,
+    EllipsisFixer,
     TidyPunctuationLineFilter,
     TidyStartOfLineProcessor,
     QuoteOrienterLineFilter,
@@ -35,6 +36,7 @@ for filename in args:
             proc = TidyStartOfLineProcessor(proc)
             proc = TidyPunctuationLineFilter(proc)
             proc = CapitalizationProcessor(proc)
+            proc = EllipsisFixer(proc)
             for line in proc:
                 sys.stdout.write(line)
                 sys.stdout.write('\n')

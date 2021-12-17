@@ -138,6 +138,7 @@ class TidyPunctuationLineFilter(RewritingProcessor):
         (r' \?', '?'),
         (r' \!', '!'),
         (r',,', ','),
+        (r'\.,', ','),
         (r',\.', '.'),
         (r'“ ', '“'),
         (r' ”', '”'),
@@ -199,6 +200,15 @@ class CapitalizationProcessor(LineProcessor):
         for line in self.iterable:
             for pattern in self.PATTERNS:
                 line = re.sub(pattern, transform, line)
+            yield line
+
+
+class EllipsisFixer(LineProcessor):
+
+    def __iter__(self):
+        for line in self.iterable:
+            line = re.sub(r'([^.])\.\.$', lambda m: m.group(1) + '...', line)
+            line = re.sub(r'([^.])\.\.([^.])', lambda m: m.group(1) + '...' + m.group(2), line)
             yield line
 
 
