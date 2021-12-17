@@ -81,7 +81,7 @@ Quotes are oriented.
     | "Yes," he said.
     = “Yes,” he said.
 
-Spaces after opening quotes and before closing quotes are elided.
+Single spaces after opening quotes and before closing quotes are elided.
 
     | " Yes , " he said.
     = “Yes,” he said.
@@ -91,6 +91,16 @@ But not the other way 'round.
     | Muttering "Yes," he turned around.
     = Muttering “Yes,” he turned around.
 
+Multiple spaces after opening quotes and before closing quotes are elided.
+
+    | "   Yes ,   " he said.
+    = “Yes,” he said.
+
+But not the other way 'round.
+
+    | Muttering   "Yes,"    he turned around.
+    = Muttering   “Yes,”    he turned around.
+
 Quotes do not match across paragraphs.
 
     | Turbid "Waters" that "leak.
@@ -99,6 +109,11 @@ Quotes do not match across paragraphs.
     = Turbid “Waters” that “leak.
     = 
     = You “don't” have a clue.
+
+Single spaces before apostrophes are elided in some situations.
+
+    | It wasn 't Arthur 's car.
+    = It wasn't Arthur's car.
 
 [Falderal]:     http://catseye.tc/node/Falderal
 [shelf]:        http://catseye.tc/node/shelf
