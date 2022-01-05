@@ -44,7 +44,6 @@ class LineProcessor(Processor):
 
     def check_input_value(self, value):
         pass
-        # assert isinstance(value, (str, unicode))
 
 
 class TrailingWhitespaceProcessor(LineProcessor):
@@ -141,8 +140,8 @@ class TidyPunctuationLineFilter(RewritingProcessor):
         (r',,', ','),
         (r'\.,', ','),
         (r',\.', '.'),
-        (r'“ ', '“'),
-        (r' ”', '”'),
+        (u'“ ', u'“'),
+        (u' ”', u'”'),
         (r" \'s", "'s"),
         (r" \'t", "'t"),
     )
