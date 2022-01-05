@@ -57,9 +57,6 @@ Tests
 This is a test suite, written in [Falderal][] format, for the `t-rext`
 utility.  It also serves as documentation for said utility.
 
-    -> Functionality "Clean up punctuation and spaces" is implemented by
-    -> shell command "bin/t-rext %(test-body-file)"
-
     -> Tests for functionality "Clean up punctuation and spaces"
 
 Spaces before commas and periods are elided.

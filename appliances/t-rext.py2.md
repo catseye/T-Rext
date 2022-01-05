@@ -1,0 +1,2 @@
+    -> Functionality "Clean up punctuation and spaces" is implemented by
+    -> shell command "python2 bin/t-rext %(test-body-file)"
