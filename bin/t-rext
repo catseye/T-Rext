@@ -38,5 +38,8 @@ for filename in args:
             proc = CapitalizationProcessor(proc)
             proc = EllipsisFixer(proc)
             for line in proc:
-                sys.stdout.write(line)
+                try:
+                    sys.stdout.write(line)
+                except UnicodeEncodeError:
+                    sys.stdout.write(line.encode('utf-8'))
                 sys.stdout.write('\n')
