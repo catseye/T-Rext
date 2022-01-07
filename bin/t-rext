@@ -12,8 +12,8 @@ sys.path.insert(0, join(dirname(realpath(sys.argv[0])), '..', 'src'))
 
 # ----------------------------------------------------------------- #
 
+from argparse import ArgumentParser
 import codecs
-from optparse import OptionParser
 import sys
 
 from t_rext.processors import (
@@ -27,8 +27,11 @@ from t_rext.processors import (
 
 
 def main(args):
-    optparser = OptionParser(__doc__.strip())
-    (options, args) = optparser.parse_args(args)
+    argparser = ArgumentParser(usage=__doc__.strip())
+
+    argparser.add_argument('--version', action='version', version="%(prog)s 0.3")
+
+    (options, args) = argparser.parse_known_args(args)
 
     for filename in args:
         with codecs.open(filename, 'r', encoding='UTF-8') as f:
