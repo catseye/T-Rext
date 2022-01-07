@@ -7,9 +7,9 @@ when you are writing a text generator, such as a Markov processor, you
 need not worry too much about its output format; just toss its output
 through T-Rext when you're done to make it more presentable.
 
-The current version of T-Rext is 0.2.  Version 0.2 requires Python 3.x;
-Python 2.x is no longer supported.  Docker images based on the required
-version of Python for each version, are [available on Docker Hub][].
+The current version of T-Rext is 0.3, which runs under either Python 2.7
+or Python 3.x.  Docker images based on appropriate versions of cPython
+for each version are [available on Docker Hub][].
 
 Usage
 -----
@@ -56,9 +56,6 @@ Tests
 
 This is a test suite, written in [Falderal][] format, for the `t-rext`
 utility.  It also serves as documentation for said utility.
-
-    -> Functionality "Clean up punctuation and spaces" is implemented by
-    -> shell command "bin/t-rext %(test-body-file)"
 
     -> Tests for functionality "Clean up punctuation and spaces"
 

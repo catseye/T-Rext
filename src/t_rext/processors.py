@@ -43,7 +43,7 @@ class Processor(object):
 class LineProcessor(Processor):
 
     def check_input_value(self, value):
-        assert isinstance(value, str)
+        pass
 
 
 class TrailingWhitespaceProcessor(LineProcessor):
@@ -140,8 +140,8 @@ class TidyPunctuationLineFilter(RewritingProcessor):
         (r',,', ','),
         (r'\.,', ','),
         (r',\.', '.'),
-        (r'“ ', '“'),
-        (r' ”', '”'),
+        (u'“ ', u'“'),
+        (u' ”', u'”'),
         (r" \'s", "'s"),
         (r" \'t", "'t"),
     )
@@ -222,15 +222,15 @@ class QuoteOrienterLineFilter(LineProcessor):
     def __iter__(self):
         self.state = 0
         for line in self.iterable:
-            new_line = ''
+            new_line = u''
             for character in line:
-                if character == '"':
+                if character == u'"':
                     if self.state == 0:
-                        character = '“'
+                        character = u'“'
                         self.state = 1
                     else:
                         assert self.state == 1
-                        character = '”'
+                        character = u'”'
                         self.state = 0
                 new_line += character
             yield new_line
